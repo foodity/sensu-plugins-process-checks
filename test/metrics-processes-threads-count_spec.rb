@@ -24,7 +24,7 @@
 #
 require_relative './plugin_stub.rb'
 require_relative './spec_helper.rb'
-require_relative '../bin/metrics-processes-threads-count.rb'
+require_relative '../bin/cb_metrics-processes-threads-count.rb'
 
 RSpec.configure do |c|
   c.before { allow($stdout).to receive(:puts) }
