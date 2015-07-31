@@ -56,16 +56,16 @@ class CheckCmdStatus < Sensu::Plugin::Check::CLI
     stdout = `#{config[:command]}`
     # #YELLOW
     unless $CHILD_STATUS.exitstatus.to_s == config[:status] # rubocop:disable UnlessElse
-      critical "#{config[:command]} exited with #{$CHILD_STATUS.exitstatus}"
+      critical "exited with #{$CHILD_STATUS.exitstatus}"
     else
       if config[:check_output]
         if Regexp.new(config[:check_output]).match(stdout)
-          ok "#{config[:command]} matched #{config[:check_output]} and exited with #{$CHILD_STATUS.exitstatus}"
+          ok "matched #{config[:check_output]} and exited with #{$CHILD_STATUS.exitstatus}"
         else
-          critical "#{config[:command]} output didn't match #{config[:check_output]} (exit #{$CHILD_STATUS.exitstatus})"
+          critical "output didn't match #{config[:check_output]} (exit #{$CHILD_STATUS.exitstatus})"
         end
       else
-        ok "#{config[:command]} exited with #{$CHILD_STATUS.exitstatus}"
+        ok "exited with #{$CHILD_STATUS.exitstatus}"
       end
     end
   end
