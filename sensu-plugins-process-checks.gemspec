@@ -1,3 +1,4 @@
+
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
@@ -9,11 +10,11 @@ else
   require_relative 'lib/sensu-plugins-process-checks'
 end
 
-pvt_key = '~/.ssh/gem-private_key.pem'
+#pvt_key = '~/.ssh/gem-private_key.pem'
 
 Gem::Specification.new do |s|
   s.authors                = ['Sensu-Plugins and contributors']
-  s.cert_chain             = ['certs/sensu-plugins.pem']
+ # s.cert_chain             = ['certs/sensu-plugins.pem']
   s.date                   = Date.today.to_s
   s.description            = 'Sensu plugins for checking running processes'
   s.email                  = '<sensu-users@googlegroups.com>'
@@ -32,7 +33,7 @@ Gem::Specification.new do |s|
   s.post_install_message   = 'You can use the embedded Ruby by setting EMBEDDED_RUBY=true in /etc/default/sensu'
   s.require_paths          = ['lib']
   s.required_ruby_version  = '>= 1.9.3'
-  s.signing_key            = File.expand_path(pvt_key) if $PROGRAM_NAME =~ /gem\z/
+#  s.signing_key            = File.expand_path(pvt_key) if $PROGRAM_NAME =~ /gem\z/
   s.summary                = 'Sensu plugins for checking running processes'
   s.test_files             = s.files.grep(%r{^(test|spec|features)/})
   s.version                = SensuPluginsProcessChecks::Version::VER_STRING
